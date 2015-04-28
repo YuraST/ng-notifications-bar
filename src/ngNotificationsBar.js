@@ -84,21 +84,24 @@
 			template: function(){
 				var acceptHTML = notificationsConfig.getAcceptHTML() || false;
 				return acceptHTML ? '\
-					<div class="notifications-container" ng-if="notifications.length">\
-						<div class="{{note.type}}" ng-repeat="note in notifications">\
-							<span class="message" ng-bind-html="note.message"></span>\
-							<span class="glyphicon glyphicon-remove close-click" ng-click="close($index)"></span>\
-						</div>\
-					</div>\
+				  <div class="notifications-container" ng-if="notifications.length">\
+				    <div class="{{note.type}}" ng-repeat="note in notifications">\
+				      <div class="container">\
+				        <span class="message" ng-bind-html="note.message"></span>\
+				        <span class="global-alert-close" ng-click="close($index)"><span aria-hidden="true">×</span></span>\
+				      </div>\
+				    </div>\
+				  </div>\
 				' : '\
-					<div class="notifications-container" ng-if="notifications.length">\
-						<div class="{{note.type}}" ng-repeat="note in notifications">\
-							<span class="message" >{{note.message}}</span>\
-							<span class="glyphicon glyphicon-remove close-click" ng-click="close($index)"></span>\
-						</div>\
-					</div>\
+				  <div class="notifications-container" ng-if="notifications.length">\
+				    <div class="{{note.type}}" ng-repeat="note in notifications">\
+				      <div class="container">\
+				        <span class="message" >{{note.message}}</span>\
+				        <span class="global-alert-close" ng-click="close($index)"><span aria-hidden="true">×</span></span>\
+				      </div>\
+				    </div>\
+				  </div>\
 				'
-
 			},
 			link: function (scope) {
 				var notifications = scope.notifications = [];
